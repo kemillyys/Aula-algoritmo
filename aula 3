@@ -1,0 +1,145 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    /*
+    int nUsuario, resultado;
+
+    printf("Informe um número inteiro:");
+    scanf("%d", &nUsuario);
+
+    //resultado = nUsuario + 1;
+    nUsuario += 1;
+    printf("O resultado é: %d\n", nUsuario);
+    */
+
+    /*
+    double area, raio, peri, pi = 3.14159;
+
+    printf("Informe o valor de raio: \n");
+    scanf("%lf", &raio);
+
+    area = pi * (raio * raio) * 2;
+
+    peri = 2 * pi * raio;
+
+    printf("Valor da área é: %.2lf\n O valor do perímetro é: %.2lf", area, peri);
+    */
+
+    /*
+    int idade, diasVividos, ano = 365;
+
+    printf("Informe sua idade:");
+    scanf("%d", &idade);
+
+    diasVividos = idade * ano;
+
+    printf("Você viveu: %d dias", diasVividos);
+    */
+
+    /*
+    double x, resultado;
+
+    printf("Informe um número:");
+    scanf("%lf", &x);
+
+    resultado = x * 0.04;
+
+    printf("É: %.2lf", resultado);
+    */
+
+
+    /*
+    double not1, not2, not3, media;
+
+    printf("Informe a nota do primeiro aluno:");
+    scanf("%lf", &not1);
+
+    printf("Informe a nota do segundo aluno:");
+    scanf("%lf", &not2);
+
+    printf("Informe a nota do terceiro aluno:");
+    scanf("%lf", &not3);
+
+    media = (not1 + not2 + not3) / 3;
+
+    printf("A média é: %.2lf", media);
+    */
+
+    /*
+    double not1, not2, not3, media;
+
+    printf("Informe a nota do primeiro aluno:");
+    scanf("%lf", &not1);
+
+    printf("Informe a nota do segundo aluno:");
+    scanf("%lf", &not2);
+
+    printf("Informe a nota do terceiro aluno:");
+    scanf("%lf", &not3);
+
+    media = (not1 * 2) + (not2 * 3) +(not3 * 5) / 10;
+
+    printf("A média é: %.2lf", media);
+    */
+
+    /*
+    double dist, tempo, vm;
+
+    printf("Informe a distância percorrida:");
+    scanf("%lf", &dist);
+
+    printf("Informe o tempo:");
+    scanf("%lf", &tempo);
+
+    vm = dist / tempo;
+
+    printf("A velocidade média foi: %.2lf", vm);
+    */
+
+    /*
+    double carro, custoCarro;
+
+    printf("Informe o valor do carro:");
+    scanf("%lf", &carro);
+
+    custoCarro = carro + (1 + 0.28 + 0.45);
+
+    printf("O valor final é de: %.2lf", custoCarro);
+    */
+
+
+    /*
+    int num1, num2, num3, casaDec1, casaDec2, casaDec3;
+
+    printf("Informe o número com três casas decimais:");
+    scanf("%d", &num1);
+
+    printf("Informe o número com três casas decimais:");
+    scanf("%d", &num2);
+
+    printf("Informe o número com três casas decimais:");
+    scanf("%d", &num3);
+
+    casaDec1 = num1 / 10 % 10;
+    casaDec2 = num2 / 10 % 10;
+    casaDec3 = num3 / 10 % 10;
+
+    printf("A dezena é: %d\n %d\n %d\n", casaDec1, casaDec2, casaDec3);
+    */
+
+
+    int data, dia, mes, ano;
+
+    printf("Informe a data:");
+    scanf("%d", &data);
+
+    dia = data / 10000;
+    mes = (data / 100) % 100;
+    ano = data % 100;
+
+    printf("Dia: %.2d Mês: %.2d Ano: %.2d", dia, mes, ano);
+
+    return (0);
+}
