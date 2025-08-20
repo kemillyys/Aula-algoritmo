@@ -1,0 +1,142 @@
+#include <stdio.h>
+#include <math.h>
+
+int main ()
+{
+    double salario, reajustado;
+    
+    printf("Informe o valor do salário: ");
+    scanf("%lf", &salario);
+        
+    reajustado = salario + (salario * 0.25);
+    
+    printf("O salário reajustado ficará: %.2lf", reajustado);
+    
+    return (0);
+}
+
+---------------------------------------------------------------------------
+
+#include <stdio.h>
+#include <math.h>
+
+int main ()
+{
+    double salario, porcent, porcentAjust, reajustado;
+    
+    printf("Informe o valor do salário: ");
+    scanf("%lf", &salario);
+    
+    printf("Informe o percentual desejado: ");
+    scanf("%lf", &porcent);
+    
+    porcentAjust = porcent / 100;
+    
+    reajustado = salario + (salario * porcentAjust);
+    
+    printf("O salário reajustado ficará: %.2lf", reajustado);
+    
+    return (0);
+}
+
+--------------------------------------------------------------------
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int anoNasc, anoAt, anos, meses, dias;
+    
+    printf("Informe seu ano de nascimento: ");
+    scanf("%d", &anoNasc);
+    
+    printf("Informe o ano atual: ");
+    scanf("%d", &anoAt);
+    
+    anos = anoAt - anoNasc;
+    
+    meses = anos * 12;
+    
+    dias = meses * 30;
+    
+    printf("Anos %d, meses %d, dias %d", anos, meses, dias);
+    
+    return (0);
+}
+
+------------------------------------------------------------------------
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int a, b, aux;
+    
+    printf("Informe um número inteiro (Valor de A): ");
+    scanf("%d", &a);
+    
+    printf("Informe outro valor inteiro (Valor de B): ");
+    scanf("%d", &b);
+    
+    aux = a;
+    a = b;
+    b = aux;
+    
+    printf("Valor de A: %d \nValor de B: %d", a, b);
+    
+    return (0);
+}
+
+------------------------------------------------------------------------
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    double real, valorCotacao, convertido;
+    
+    printf("Informe o valor em real: R$");
+    scanf("%lf", &real);
+    
+    printf("Informe o valor da cotação: $");
+    scanf("%lf", &valorCotacao);
+    
+    convertido = real / valorCotacao;
+    
+    printf("O valor convertido para dólar é: $%.2lf", convertido);
+    
+    return (0);
+}
+
+------------------------------------------------------------------------
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    double racaoKg, racaoG, gatos, gastos, rdia, resto, restoKg;
+    
+    printf("Informe a quantidade de ração comprada em Kg: ");
+    scanf("%lf", &racaoKg);
+    
+    printf("Informe a quantidade de ração fornecida para cada gato: ");
+    scanf("%lf", &gatos);
+    
+    racaoG = racaoKg * 1000;
+    
+    gastos = gatos * 2;
+    
+    rdia = gastos * 5;
+    
+    resto = racaoG - rdia;
+    
+    restoKg = resto / 1000;
+    
+    printf("A quantidade que restará é de: %.2lfKg", restoKg);
+    
+    return (0);
+}
