@@ -1,0 +1,354 @@
+1
+/* Escreva um programa em C que inicialmente recebe do usuário um valor inteiro
+i. Logo após, o seu programa deve solicitar ao usuário que informe mais 3 valores
+a, b e c (podem ser inteiros ou decimais). Se o valor de i for par então o seu
+programa deve calcular e imprimir na tela a média aritmética de a, b e c. Caso
+contrário, se i>10 então o programa deve calcular e imprimir na tela a média
+ponderada de a, b e c. Os pesos dos valores são respectivamente 2, 3 e 4. */
+
+#include <stdio.h>
+
+int main() 
+{
+    int i;
+    double a, b, c, medA, medP;
+    
+    printf("Informe um número inteiro: ");
+    scanf("%d", &i);
+    
+    printf("Informe o valor de A, B e C: ");
+    scanf("%lf %lf %lf", &a, &b, &c);
+    
+    if(i % 2 == 0){
+        medA = (a + b + c) / 3.0;
+        
+        printf("A média aritmética é: %.2lf", medA);
+    }
+    
+    else if(i > 10){
+        medP = (a * 2 + b * 3 + c * 4) / (2 + 3 + 4);
+        
+        printf("A média ponderada é %.2lf", medP);
+    }
+    
+    /* else{
+        printf("O número inteiro é ímpar e maior que 10. Nenhuma média será calculada!");
+    } */
+
+    return 0;
+}
+
+______________________________________________________
+
+
+2
+/* Elabore um algoritmo em C que receba dois valores do usuário, que correspondem
+a base e a altura de um retângulo. Seu algoritmo deve verificar inicialmente se os
+valores formam um retângulo ou um quadrado. Caso formem um quadrado,
+imprima a palavra QUADRADO, e caso seja um retângulo, mostre o perímetro
+(soma de todos os lados) e a área (base vezes a altura) do retângulo. */
+
+#include <stdio.h>
+
+int main() 
+{
+    double base, alt, per, area; 
+    
+    printf("Informe o valor da BASE e da ALTURA: ");
+    scanf("%lf %lf", &base, &alt);
+    
+    if(base == alt){
+        printf("QUADRADO!");
+    }
+    
+    else{
+        per = 2 * (base + alt);
+        area = base * alt;
+        
+        printf("RETÂNGULO! \nPerímetro: %.2lf\nÁrea:  %.2lf", per, area);
+    }
+
+    return 0;
+}
+
+_______________________________________________________
+
+3
+/* Escreva um algoritmo que permite ao usuário executar ações a partir de dois
+números informados por ele. O seu algoritmo deve solicitar inicialmente ao
+usuário informe os dois números e depois exibir o seguinte menu em tela:
+1- Soma de 2 números.
+2- Diferença entre 2 números (maior pelo menor).
+3- Produto entre 2 números.
+4- Divisão entre 2 números (o denominador não pode ser zero).
+O seu programa deve retornar o resultado de acordo com a opção escolhida pelo
+usuário, obedecendo as restrições existentes em algumas das opções (caso sejam
+escolhidas). */
+
+#include <stdio.h>
+
+int main() 
+{
+    int op;
+    double n1, n2, soma, dif, prod, divi;
+    
+    printf("Informe dois números: ");
+    scanf("%lf %lf", &n1, &n2);
+    
+    printf("Escolha uma opção de 1 a 4:\n");
+    printf("1- Soma de 2 números.\n");
+    printf("2- Diferença entre 2 números (maior pelo menor).\n");
+    printf("3- Produto entre 2 números.\n");
+    printf("4- Divisão entre 2 números (o denominador não pode ser zero).\n");
+    scanf("%d", &op);
+    
+    switch(op){
+        case 1:{
+            soma = n1 + n2;
+            printf("%.2lf + %.2lf = %.2lf", n1, n2, soma);
+            break;
+        }
+        
+        case 2:{
+            if(n1 > n2){
+                dif = n1 - n2;
+                printf("%.2lf - %.2lf = %.2lf", n1, n2, dif);
+            }
+            else{
+                dif = n2 - n1;
+                printf("%.2lf - %.2lf = %.2lf", n2, n1, dif);
+            }
+            break;
+        }
+        
+        case 3:{
+            prod = n1 * n2;
+            printf("%.2lf * %.2lf = %.2lf", n1, n2, prod);
+            break;
+        }
+        
+        case 4:{
+            if(n2 != 0){
+                divi = n1 / n2;
+                printf("%.2lf / %.2lf = %.2lf", n1, n2, divi);
+            }
+            else{
+                printf("Divisor não pode ser igual a zero!");
+            }
+            break;
+        }
+        
+        default:{
+            printf("Opção Inválida!");
+        }
+    }
+
+    return 0;
+}
+
+____________________________________________________
+
+4
+/* As tarifas de certo parque de estacionamento são as seguintes:
+1ª e 2ª hora - R$ 1,00 cada
+3ª e 4ª hora - R$ 1,40 cada
+5ª hora e seguintes - R$ 2,00 cada
+O número de horas a pagar é sempre inteiro e arredondado por excesso. Deste
+modo, quem estacionar durante 61 minutos pagará por duas horas, que é o mesmo
+que pagaria se tivesse permanecido 120 minutos. Os momentos de chegada ao
+parque e partida deste são apresentados na forma de pares de inteiros,
+representando horas e minutos. Por exemplo, o par 12 50 representará “dez para
+a uma da tarde”. Pretende-se criar um programa que, lidos pelo teclado os
+momentos de chegada e de partida, escreva na tela o preço cobrado pelo
+estacionamento. Admite-se que a chegada e a partida se dão com intervalo não
+superior a 24 horas. Portanto, se uma dada hora de chegada for superior à da
+partida, isso não é uma situação de erro, antes significará que a partida ocorreu no
+dia seguinte ao da chegada. */
+
+#include <stdio.h>
+
+int main() 
+{
+    int h1, h2, m1, m2, totalChegada, totalSaida, tempo, horas;
+    double preco = 0;
+    
+    printf("Horário de chegada: (ex 12 40) ");
+    scanf("%d %d", &h1, &m1);
+    
+    printf("Horário de saída: (ex 12 40) ");
+    scanf("%d %d", &h2, &m2);
+    
+    totalChegada = (h1 * 60) + m1;
+    totalSaida = (h2 * 60) + m2;
+    
+    if(totalSaida < totalChegada){
+        totalSaida += 24 * 60;
+    }
+    
+    tempo = totalSaida - totalChegada;
+    
+    if(tempo % 60 != 0){
+        horas = tempo / 60 + 1;
+    }
+    else if(tempo == 0){
+        tempo = 24 * 60;
+        horas = tempo / 60;
+    }
+    else{
+        horas = tempo / 60;
+    }
+    
+    if(horas <= 2){
+        preco = horas * 1.0;
+    }
+    else if(horas <= 4){
+        preco = 2 * 1.0 + (horas - 2) * 1.40;
+    }
+    else{
+        preco = 2 * 1.0 + 2 * 1.40 + (horas - 4) * 2.0;
+    }
+    
+    printf("Tempo: %d\n", horas);
+    printf("Valor: R$%.2lf", preco);
+    
+    return 0;
+
+}
+_________________________________________________
+
+5
+Além disto, concedeu um abono de R$ 100,00 para aqueles que recebem até R$
+750,00. Escreva um algoritmo que, dado o valor do salário de um funcionário,
+informe para quanto ele será reajustado. */
+
+#include <stdio.h>
+
+int main() 
+{
+    double salario, reaj;
+    
+    printf("Informe o valor do seu salário atual: R$");
+    scanf("%lf", &salario);
+    
+    reaj = salario + (salario * 0.05);
+    
+    if(salario <= 750.00){
+        reaj += 100.00;
+        printf("O salario ajustado com abono fica: R$%.2lf", reaj);
+    }
+    else{
+        printf("Salario ajustado: R$%.2lf", reaj);
+    }
+
+    return 0;
+}
+
+_____________________________________________________
+
+6
+/* Escrever um algoritmo que apresenta ao usuário menus de escolhas de pratos,
+sobremesas e bebidas, de acordo com a tabela abaixo.
+
+O usuário pode escolher um dos pratos, uma das sobremesas e uma das bebidas
+desse cardápio. A seguir, o algoritmo deve calcular e escrever o total de calorias
+da refeição, com base nas calorias dos pratos escolhidos. */
+
+#include <stdio.h>
+
+int main() 
+{
+    int prato, sobremesa, bebida, totalCalorias;
+    
+    printf("Informe o prato: \n1- Vegetariano (180 cal) \n2- Peixe (230 cal) \n3- Frango (250 cal) \n4- Carne (350 cal)\n");
+    scanf("%d", &prato);
+    
+    printf("Informe a sobremesa: \n1- Abacaxi (75 cal) \n2- Sorvete (110 cal) \n3- Mousse (170 cal) \n4- Mousse Choc (200 cal)\n");
+    scanf("%d", &sobremesa);
+    
+    printf("Informe a bebida: \n1- Chá (20 cal) \n2- Suco de Laranja (70 cal) \n3- Suco de Melão (100 cal) \n4- Refrigerante Zero (65 cal)\n");
+    scanf("%d", &bebida);
+    
+    switch(prato){
+        case 1:{
+            prato = 180;
+            break;
+        }
+        
+        case 2:{
+            prato = 230;
+            break;
+        }
+        
+        case 3:{
+            prato = 250;
+            break;
+        }
+        
+        case 4:{
+            prato = 350;
+            break;
+        }
+        
+        default:{
+            printf("Opção Inválida!");
+        }
+    }
+    
+    switch(sobremesa){
+        case 1:{
+            sobremesa = 75;
+            break;
+        }
+        
+        case 2:{
+            sobremesa = 110;
+            break;
+        }
+        
+        case 3:{
+            sobremesa = 170;
+            break;
+        }
+        
+        case 4:{
+            sobremesa = 200;
+            break;
+        }
+        
+        default:{
+            printf("Opção Inválida!");
+        }
+    }
+    
+    switch(bebida){
+        case 1:{
+            bebida = 20;
+            break;
+        }
+        
+        case 2:{
+            bebida = 70;
+            break;
+        }
+        
+        case 3:{
+            bebida = 100;
+            break;
+        }
+        
+        case 4:{
+            bebida = 65;
+            break;
+        }
+        
+        default:{
+            printf("Opção Inválida!");
+        }
+    }
+    
+    totalCalorias = prato + sobremesa + bebida;
+    
+    printf("Calorias totais: %d cal", totalCalorias);
+
+    return 0;
+}
