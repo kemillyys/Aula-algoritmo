@@ -1,0 +1,343 @@
+1
+#include <stdio.h>
+
+int main()
+{
+    char sexo;
+    int idade, totalHomens = 0, totalMulheres = 0;
+    double peso, somaIdadeHomens = 0.0, mediaIdadeHomens = 0.0, somaPesoMulheres = 0.0, mediaPesoMulheres = 0.0;
+    
+    for(int i = 0; i < 10; i++){
+        printf("Informe o sexo (F ou M) a idade e o peso: ");
+        scanf(" %c %d %lf", &sexo, &idade, &peso);
+        
+        if(sexo == 'f' || sexo == 'F'){
+            totalMulheres++;
+            somaPesoMulheres += peso;
+        }
+        
+        else if(sexo == 'm' || sexo == 'M'){
+            totalHomens++;
+            somaIdadeHomens += idade;
+        }
+    }
+    
+    printf("Total de mulheres: %d\n", totalMulheres);
+    printf("Total de homens: %d\n", totalHomens);
+    
+    if(totalHomens > 0){
+        mediaIdadeHomens = somaIdadeHomens / totalHomens;
+        printf("Soma da idade dos homens: %.2lf\n", somaIdadeHomens);
+        printf("Média da idade dos homens: %.2lf\n", mediaIdadeHomens);
+    }
+    
+    if(totalMulheres > 0){
+        mediaPesoMulheres = somaPesoMulheres / totalMulheres;
+        printf("Total do peso: %.2lf\n", somaPesoMulheres);
+        printf("Média do peso das mulheres: %.2lf\n", mediaPesoMulheres);
+    }
+
+    return 0;
+}
+
+______________________________________________________________________
+
+2
+#include <stdio.h>
+
+int main()
+{
+    int n, soma = 0, maiorValor, menorValor;
+    double media;
+    
+    for(int i = 0; i < 10; i++){
+        printf("Informe um número inteiro positivo: ");
+        scanf("%d", &n);
+        
+        if(i == 0){
+            maiorValor = n;
+            menorValor = n;
+        }
+        
+        else if(n < menorValor){
+            menorValor = n;
+        }
+        
+        else if(n > maiorValor){
+            maiorValor = n;
+        }
+        
+        soma += n;
+    }
+    
+    printf("Maior Valor: %d\n", maiorValor);
+    printf("Menor Valor: %d\n", menorValor);
+    printf("Média: %.2lf\n", (double)soma / 10);
+
+    return 0;
+}
+
+_______________________________________________________________________
+
+3
+#include <stdio.h>
+
+int main()
+{
+    int x, y, cont = 0;
+    double resultado = 1;
+    
+    printf("Informe os valores (positivos e inteiros) de X e Y: ");
+    scanf("%d %d", &x, &y);
+    
+    while(cont < y){
+        resultado *= x;
+        cont++;
+    }
+    
+    printf("resultado: %.2lf", resultado);
+    
+    return 0;
+}
+
+
+_________________________________________________________________________
+
+
+4
+#include <stdio.h>
+
+int main()
+{
+    int op;
+    double n1, n2, resultado;
+    
+    
+    
+        do{
+            printf("Escolha uma opção: \n1 - multiplicar\n2-somar\n3- Subtrair\n4-Dividir\n5-Sair\n");
+            scanf("%d", &op);
+            
+            if(op >= 1 && op <= 4){
+                printf("Informe dois numeros: ");
+                scanf("%lf %lf", &n1, &n2);
+                
+                switch(op){
+                    case 1:{
+                        resultado = n1 * n2;
+                        printf("%.2lf\n", resultado);
+                        break;
+                    }
+                    
+                    case 2:{
+                        resultado = n1 + n2;
+                        printf("%.2lf\n", resultado);
+                        break;
+                    }
+                    
+                    case 3:{
+                        resultado = n1 - n2;
+                        printf("%.2lf\n", resultado);
+                        break;
+                    }
+                    
+                    case 4:{
+                        resultado = n1 / n2;
+                        printf("%.2lf\n", resultado);
+                        break;
+                    }
+                }
+            }
+            
+            else if(op == 5){
+                printf("Você saiu!");
+            }
+            
+            else{
+                printf("Opção inválida!\n");
+            }
+        }
+        
+        while(op != 5);
+    
+    
+    return 0;
+}
+
+
+__________________________________________________________________
+
+5
+#include <stdio.h>
+
+int main()
+{
+    int idade, cont_faixa1, cont_faixa2, cont_faixa3, cont_faixa4;
+    double peso, faixa1, faixa2, faixa3, faixa4;
+    
+    for(int i = 0; i < 15; i++){
+        printf("Informe a idade e o peso: ");
+        scanf("%d %lf", &idade, &peso);
+        
+        if(idade >= 1 && idade <= 10){
+            faixa1 += peso;
+            cont_faixa1++;
+        }
+        
+        else if(idade >= 11 && idade <= 20){
+            faixa2 += peso;
+            cont_faixa2++;
+        }
+        
+        else if(idade >= 21 && idade <= 30){
+            faixa3 += peso;
+            cont_faixa3++;
+        }
+        
+        else if(idade >= 31){
+            faixa4 += peso;
+            cont_faixa4++;
+        }
+        
+        else{
+            printf("Idade Inválida!");
+        }
+    }
+    
+    printf("---- Resultado das médias: ----\n");
+    
+    if(cont_faixa1 > 0){
+        printf("Média dos pesos ente 1 e 10 anos: %.2lf\n", faixa1/cont_faixa1);
+    }
+    else{
+        printf("Não há pessoas na faixa de 1 a 10 anos!\n");
+    }
+    
+    
+    if(cont_faixa2 > 0){
+        printf("Média dos pesos ente 11 e 20 anos: %.2lf\n", faixa2/cont_faixa2);
+    }
+    else{
+        printf("Não há pessoas na faixa de 11 a 20 anos!\n");
+    }
+    
+    
+    if(cont_faixa3 > 0){
+        printf("Média dos pesos ente 21 e 30 anos: %.2lf\n", faixa3/cont_faixa3);
+    }
+    else{
+        printf("Não há pessoas na faixa de 21 a 30 anos!\n");
+    }
+    
+    
+    if(cont_faixa4 > 0){
+        printf("Média dos pesos acima de 32 anos: %.2lf\n", faixa4/cont_faixa4);
+    }
+    else{
+        printf("Não há pessoas de 32 anos ou mais!\n");
+    }
+    
+    return 0;
+}
+
+_______________________________________________________________________
+
+6
+#include <stdio.h>
+
+int main()
+{
+    int n, cont = 0;
+    double soma = 0, media;
+    
+    do{
+        printf("Informe um número inteiro (-99 para sair): ");
+        scanf("%d", &n);
+        
+        if(n != -99){
+            soma += n;
+            cont++;
+        }
+    }
+    while (n != -99);
+    
+    if(cont > 0){
+        media = soma / cont;
+        printf("Soma: %.2lf\n", soma);
+        printf("Média: %.2lf\n", media);
+    }
+    else{
+        printf("Nenhum número foi informado!\n");
+    }
+    
+    return 0;
+}
+
+____________________________________________________________________
+
+7
+#include <stdio.h>
+
+int main()
+{
+    char vinho;
+    int cont = 0, contTinto = 0, contBranco = 0, contRose = 0, total;
+    
+    do{
+        printf("Informe o tipo do vinho: \n“T” para tinto\n“B” para branco\n“R” para rosê\n“F” (de fim)\n");
+        scanf(" %c", &vinho);
+        
+        if(vinho != 'f' && vinho != 'F' && (vinho == 'T' || vinho == 't')){
+            contTinto++;
+            cont++;
+        }
+        
+        else if(vinho != 'f' && vinho == 'B' || vinho == 'b'){
+            contBranco++;
+            cont++;
+        }
+        
+        else if(vinho != 'f' && vinho == 'R' || vinho == 'r'){
+            contRose++;
+            cont++;
+        }
+        
+        else if(vinho != 'f' && vinho == 'F' || vinho == 'f'){
+            printf("Você saiu!\n");
+        }
+    }
+    while (vinho != 'f' && vinho != 'F');
+    
+    if(contTinto > 0){
+        printf("\nTotal de vinho tinto na adega: %d\n", contTinto);
+    }
+    else{
+        printf("Não possui vinho tinto.\n");
+    }
+    
+    
+    if(contBranco > 0){
+        printf("Total de vinho branco na adega: %d\n", contBranco);
+    }
+    else{
+        printf("Não possui vinho branco.\n");
+    }
+    
+    
+    if(contRose > 0){
+        printf("Total de vinho rose na adega: %d\n", contRose);
+    }
+    else{
+        printf("Não possui vinho rose.\n");
+    }
+    
+    if(cont > 0){
+        total = contTinto + contBranco + contRose;
+        printf("Total de vinhos na adega: %d\n", total);
+    }
+    else{
+        printf("Não possui vinhos na adega!\n");
+    }
+    
+    return 0;
+}
