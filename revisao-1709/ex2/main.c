@@ -32,7 +32,9 @@ int main()
     printf("Informe a terceira nota 0-10: \n");
     scanf("%lf", &n3);
 
-    me = n1 + n2 + n3 / 3;
+    printf("Informe a nota dos exercícios (0-10): \n");
+    scanf("%lf", &me);
+    
     media = (n1 + n2 * 2 + n3 * 3 + me);
 
     printf("RA: %d\n", ra);
@@ -40,19 +42,19 @@ int main()
     printf("Média: %.2lf\n", media);
 
     if(media >= 90.0){
-        ap == 'A';
+        ap = 'A';
         printf("Conceito A\n");
     }
     else if(media >= 75.0 && media < 90.0){
-        ap == 'B';
+        ap = 'B';
         printf("Conceito B\n");
     }
     else if(media >= 60.0 && media < 75.0){
-        ap == 'C';
+        ap = 'C';
         printf("Conceito C\n");
     }
     else if(media >= 40.0 && media < 60.0){
-        ap == 'D';
+        ap = 'D';
         printf("Conceito D\n");
     }
     else if(media < 40.0){
@@ -60,7 +62,7 @@ int main()
         printf("Conceito E\n");
     }
 
-    if(ap == 'D' && ap == 'E'){
+    if(ap == 'D' || ap == 'E'){
         printf("Aluno reprovado!\n");
     }
     else{
@@ -69,3 +71,4 @@ int main()
 
     return 0;
 }
+
